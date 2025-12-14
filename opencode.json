@@ -1,0 +1,60 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["docs/PLANNING.md", "docs/TASK.md", "AGENTS.md"],
+  "agent": {
+    "plan": {
+      "prompt": "{file:./.opencode/agent/plan.md}",
+      "model": "anthropic/claude-opus-4-5",
+      "permission": {
+        "edit": "deny",
+        "bash": "allow",
+        "write": "deny"
+      }
+    },
+    "build": {
+      "prompt": "{file:./.opencode/agent/build.md}",
+      "model": "anthropic/claude-sonnet-4-5"
+    },
+    "test-provider": {
+      "description": "Specialized agent for creating comprehensive tests for all implemented code",
+      "mode": "subagent",
+      "model": "opencode/grok-code",
+      "prompt": "{file:./.opencode/agent/test-provider.md}",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "prp-generator": {
+      "description": "Generates comprehensive PRPs from feature requests - thinks like a planner but can write PRP files",
+      "mode": "subagent",
+      "model": "anthropic/claude-opus-4-5",
+      "prompt": "{file:./.opencode/agent/prp-generator.md}",
+      "temperature": 0.1,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": false
+      },
+      "permission": {
+        "edit": "allow",
+        "write": "allow"
+      }
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true,
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
+    }
+  },
+  "tools": {
+    "context7": true
+  },
+  "autoupdate": true
+}
