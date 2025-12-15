@@ -64,47 +64,40 @@ Dark mode design: https://www.figma.com/design/f6VpvlfuYvOTlaanXb46ir/github-use
 
 The color of elements like focus border, error text are same for both variants.
 
+Also there is some missaligned with the dark mode "moon" icon, its overflowing the viewport.
+
 **Výsledok:**  
 
+Upravil to a featura funguje. 
+
 **Úpravy:**
-```
-```
+-
 
 **Poznámky:**
-```
-```
-
----
+-
 
 ## 3. Problémy a Riešenia 
 
 > 💡 **Tip:** Problémy sú cenné! Ukazujú ako riešiš problémy s AI.
 
-### Problém #1: _________________________________
+### Problém #1: Neslo prepinat medzi light / dark modom
 
 **Čo sa stalo:**
-```
-[Detailný popis problému - čo nefungovalo? Aká bola chyba?]
-```
+Root Cause
+Tailwind CSS v4 uses a different architecture than v3. The project was using v4 (4.1.18), which requires explicit configuration to enable class-based dark mode using the @variant directive. Without this configuration, Tailwind v4 defaults to using @media (prefers-color-scheme: dark) instead of the .dark class selector.
+The ThemeProvider was correctly adding/removing the .dark class on the <html> element, but Tailwind wasn't generating the proper CSS selectors to respond to that class.
 
 **Prečo to vzniklo:**
-```
-[Tvoja analýza - prečo AI toto vygeneroval? Čo bolo v prompte zlé?]
-```
+Pravdepodobne malo kontextu ku tailwind4? Aj ked obdrzal cez Conetxt7 kontext, tak neviem
 
 **Ako som to vyriešil:**
-```
-[Krok za krokom - čo si urobil? Upravil prompt? Prepísal kód? Použil iný nástroj?]
-```
+Zapol som plan agenta (pravdepodobne netrebalo maly fix), ktory identifikoval problem a nasledne build agent to zimplementoval
 
 **Čo som sa naučil:**
-```
-[Konkrétny learning pre budúcnosť - čo budeš robiť inak?]
-```
+Kontext je king.
 
 **Screenshot / Kód:** [ ] Priložený
-
----
+Vyessie som dal output z agenta. 
 
 ### Problém #2: _________________________________
 

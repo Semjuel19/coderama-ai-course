@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Test</title>
+    <style>
+        body {
+            font-family: 'Space Mono', monospace;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        /* Light mode (default) */
+        body {
+            background-color: #F6F8FF;
+            color: #2B3442;
+        }
+        
+        /* Dark mode */
+        body.dark {
+            background-color: #141D2F;
+            color: #FFFFFF;
+        }
+        
+        .card {
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            transition: background-color 0.3s;
+        }
+        
+        .card {
+            background-color: #FFFFFF;
+        }
+        
+        body.dark .card {
+            background-color: #1E2A47;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #0079FF;
+            color: white;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            background-color: #60ABFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dark Mode Test</h1>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    
+    <div class="card">
+        <h2>Test Card</h2>
+        <p>This card should change colors when you toggle dark mode.</p>
+        <p>Light mode: White background (#FFFFFF)</p>
+        <p>Dark mode: Dark background (#1E2A47)</p>
+    </div>
+    
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            console.log('Dark mode:', document.body.classList.contains('dark'));
+        }
+        
+        // Check initial state
+        console.log('Initial dark mode:', document.body.classList.contains('dark'));
+    </script>
+</body>
+</html>
