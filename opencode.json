@@ -51,10 +51,15 @@
       "headers": {
         "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
       }
+    },
+    "figma-mcp-dektop": {
+      "type": "remote",
+      "url": "http://127.0.0.1:3845/mcp"
     }
   },
   "tools": {
-    "context7": true
+    "context7": true,
+    "figma-mcp-dektop": true
   },
   "autoupdate": true
 }

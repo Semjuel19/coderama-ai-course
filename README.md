@@ -53,6 +53,12 @@ When using this template for a new project, customize:
 ### Recommended
 - [ ] `opencode.json` - Configure models, MCP servers, permissions
 - [ ] `.gitignore` - Add language-specific ignores
+- [ ] `.env` - Add your API keys
+
+### MCP Integrations
+This template includes pre-configured MCP servers:
+- **Context7** - Search documentation for libraries and frameworks
+- **Figma** - Convert Figma designs directly into code
 
 ### Language-Specific Updates
 
